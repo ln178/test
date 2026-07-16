@@ -1,0 +1,302 @@
+/* Custom variables for unified color scheme */
+:root {
+  --primary-teal: #009688;
+  --primary-teal-hover: #00796b;
+  --dark-bg: #0b1116;
+  --accent-orange: #ff8f00;
+  --accent-orange-hover: #e67e00;
+  --light-bg: #f4f7f6;
+  --text-dark: #2c3e50;
+  --border-radius: 12px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background-color: #fafbfc;
+}
+
+/* Custom Utilities & Colors */
+.text-teal {
+  color: var(--primary-teal) !important;
+}
+.bg-teal {
+  background-color: var(--primary-teal) !important;
+}
+.text-orange {
+  color: var(--accent-orange) !important;
+}
+.bg-orange {
+  background-color: var(--accent-orange) !important;
+}
+.bg-dark-custom {
+  background-color: var(--dark-bg) !important;
+}
+.border-teal {
+  border-color: var(--primary-teal) !important;
+}
+
+/* Navbar Custom styling */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+.btn-teal-outline {
+  border: 2px solid var(--primary-teal);
+  color: var(--primary-teal);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+.btn-teal-outline:hover {
+  background-color: var(--primary-teal);
+  color: white;
+}
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--primary-teal) !important;
+}
+
+/* Hero Section with Angle gradient like standard landing pages */
+.hero-section {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #16242f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Form Card custom styles */
+.form-card {
+  border-radius: var(--border-radius);
+  background: #ffffff;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 150, 136, 0.25);
+  background-color: #ffffff !important;
+  border-color: var(--primary-teal);
+}
+
+/* Custom Orange Button */
+.btn-orange-lg {
+  background-color: var(--accent-orange);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.btn-orange-lg:hover {
+  background-color: var(--accent-orange-hover);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 143, 0, 0.4);
+}
+
+/* Feature Cards Grid */
+.feature-card {
+  border-radius: var(--border-radius);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(0, 150, 136, 0.1);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Info Lists */
+.custom-list li {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom range slider styling */
+.custom-range::-webkit-slider-runnable-track {
+  background: #e9ecef;
+  height: 8px;
+  border-radius: 4px;
+}
+.custom-range::-webkit-slider-thumb {
+  background: var(--accent-orange);
+  width: 20px;
+  height: 20px;
+  margin-top: -6px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+}
+.custom-range::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Additional layout spacing tweaks */
+.space-y-3 > li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.space-y-2 > li:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+.uppercase-tracking {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SỬA LẠI MÀU CHỮ FOOTER ĐỂ DỄ ĐỌC HƠN */
+footer {
+  color: #e0e6ed !important; /* Màu chữ chính sáng hơn (trắng sữa nhẹ) */
+}
+
+footer h5 {
+  color: #00f0d8 !important; /* Màu tiêu đề xanh teal sáng rực rỡ nổi bật */
+  letter-spacing: 0.5px;
+}
+
+/* Biến các đoạn text-muted trong footer thành màu xám sáng dễ nhìn */
+footer .text-muted {
+  color: #a0aec0 !important;
+}
+
+/* Nhãn nhỏ phía trên số điện thoại */
+footer span.text-muted.small {
+  color: #cbd5e1 !important;
+}
+
+/* Phần chữ thời gian làm việc */
+footer p {
+  color: #e2e8f0 !important;
+}
+
+/* Phần bản quyền dưới cùng */
+footer .text-md-end p.text-muted,
+footer p.text-muted.small {
+  color: #94a3b8 !important;
+}
+
+/* Custom CSS cho nút Đăng Nhập và Đăng Ký trên Navbar */
+.btn-login {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  color: var(--primary-teal) !important;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-signup {
+  background-color: var(--primary-teal);
+  color: #ffffff;
+  border: 1px solid var(--primary-teal);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 150, 136, 0.2);
+}
+
+.btn-signup:hover {
+  background-color: var(--primary-teal-hover);
+  border-color: var(--primary-teal-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 150, 136, 0.3);
+}
+
+/* Fix khoảng cách trên mobile khi co màn hình */
+@media (max-width: 991.98px) {
+  .nav-item.d-flex {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-login,
+  .btn-signup {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Thêm cái này để toàn bộ trang web cuộn mượt mà khi bấm link liên kết anchor */
+html {
+  scroll-behavior: smooth;
+}
+
+/* EFFECT FOR STATUS MODAL */
+.status-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vòng tròn xoay custom chuyển màu */
+.spinner-custom {
+  width: 70px;
+  height: 70px;
+  border: 5px solid rgba(0, 150, 136, 0.1);
+  border-top: 5px solid var(--primary-teal);
+  border-radius: 50%;
+  animation: spin 0.4s linear infinite;
+  margin: 20px 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Vòng tròn chứa dấu X và dấu Check */
+.circle-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.bg-danger-light {
+  background-color: #fee2e2;
+}
+
+.bg-success-light {
+  background-color: #d1fae5;
+}
+
+.btn-teal-modal {
+  background-color: var(--primary-teal);
+  color: white;
+  border: none;
+}
+.btn-teal-modal:hover {
+  background-color: var(--primary-teal-hover);
+  color: white;
+}
+
+/* Hiệu ứng bung ra của icon khi xuất hiện */
+.animate-scale {
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

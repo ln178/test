@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAYNHANH+ | Vay Tiền Nhanh Online</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Thêm dòng này vào trong thẻ <head> của file index.html -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark-custom py-3 shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <div class="logo-icon me-2">
+            <i class="bi bi-lightning-charge-fill text-warning fs-3"></i>
+          </div>
+          <div>
+            <span class="fw-bold tracking-wider text-orange d-block fs-4 lh-1"
+              >VAYNHANH+</span
+            >
+            <small
+              class="text-muted text-uppercase font-monospace"
+              style="font-size: 0.65rem"
+              >vaynhanhplus.top</small
+            >
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav align-items-center gap-3 mt-3 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer-section">Liên Hệ</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="check.html"
+                class="btn btn-teal-outline rounded-pill px-4"
+                >Kiểm Tra Hóa Đơn</a
+              >
+            </li>
+            <li class="nav-item d-flex gap-2 ms-lg-2 mt-2 mt-lg-0">
+              <a href="signin.html" class="btn btn-login rounded-pill px-3">
+                <i class="bi bi-box-arrow-in-right me-1"></i>Đăng Nhập
+              </a>
+              <a href="signup.html" class="btn btn-signup rounded-pill px-3">
+                Đăng Ký
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7 text-white">
+            <div class="pe-lg-4">
+              <span
+                class="badge bg-orange mb-3 px-3 py-2 rounded-pill fw-semibold"
+                >Giải pháp tài chính 24/7</span
+              >
+              <h1 class="display-5 fw-bold mb-4">
+                Vay Nhanh Online <br /><span class="text-orange"
+                  >Nhận Tiền Trong Ngày</span
+                >
+              </h1>
+
+              <ul class="list-unstyled space-y-3 fs-5">
+                <li class="d-flex align-items-start mb-3">
+                  <i
+                    class="bi bi-chevron-double-right text-orange me-3 mt-1"
+                  ></i>
+                  <span>Không cần thẩm định nhà ở, nơi làm việc</span>
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i
+                    class="bi bi-chevron-double-right text-orange me-3 mt-1"
+                  ></i>
+                  <span>Không cần chứng minh thu nhập phức tạp</span>
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i
+                    class="bi bi-chevron-double-right text-orange me-3 mt-1"
+                  ></i>
+                  <span
+                    >Khoản vay linh động cực cao:
+                    <strong>1 ~ 10 triệu VND</strong></span
+                  >
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i
+                    class="bi bi-chevron-double-right text-orange me-3 mt-1"
+                  ></i>
+                  <span
+                    >Giải ngân siêu tốc trực tuyến trong
+                    <strong>2 giờ</strong></span
+                  >
+                </li>
+                <li class="d-flex align-items-start mb-3">
+                  <i
+                    class="bi bi-chevron-double-right text-orange me-3 mt-1"
+                  ></i>
+                  <span
+                    >Đăng ký đơn giản chỉ bằng
+                    <strong>Căn cước công dân (CCCD)</strong></span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card form-card border-0 shadow-lg">
+              <div class="card-body p-4 p-md-5">
+                <h3 class="fw-bold mb-4 text-center text-dark-blue">
+                  Tính Toán Khoản Vay
+                </h3>
+
+                <div class="mb-4">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <span class="text-muted fw-semibold"
+                      >Số tiền muốn vay:</span
+                    >
+                    <span class="fs-4 fw-bold text-teal" id="loanAmountText"
+                      >850,000 VND</span
+                    >
+                  </div>
+                  <input
+                    type="range"
+                    class="form-range custom-range"
+                    id="loanRange"
+                    min="850000"
+                    max="20000000"
+                    step="500000"
+                    value="850000"
+                  />
+                  <div
+                    class="d-flex justify-content-between text-muted small mt-1"
+                  >
+                    <span>850.000đ</span>
+                    <span>20.000.000đ</span>
+                  </div>
+                </div>
+
+                <hr class="my-4 opacity-50" />
+
+                <form id="loanForm">
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold text-muted"
+                      >Họ và tên</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-lg bg-light border-0"
+                      placeholder="Nguyễn Văn A"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold text-muted"
+                      >Số điện thoại di động</label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control form-control-lg bg-light border-0"
+                      placeholder="09xx xxx xxx"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label small fw-bold text-muted"
+                      >Địa chỉ Email</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control form-control-lg bg-light border-0"
+                      placeholder="name@gmail.com"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-orange-lg w-100 py-3 fw-bold uppercase-tracking"
+                  >
+                    ĐĂNG KÝ NGAY <i class="bi bi-arrow-right ms-2"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div
+              class="card feature-card text-center h-100 border-0 shadow-sm p-4"
+            >
+              <div class="feature-icon mb-3">
+                <i class="bi bi-pencil-square fs-1 text-teal"></i>
+              </div>
+              <h5 class="fw-bold">Đăng ký dễ dàng</h5>
+              <p class="text-muted small mb-0">
+                Hồ sơ đăng ký 100% online cực kỳ tiện lợi.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div
+              class="card feature-card text-center h-100 border-0 shadow-sm p-4"
+            >
+              <div class="feature-icon mb-3">
+                <i class="bi bi-folder2-open fs-1 text-teal"></i>
+              </div>
+              <h5 class="fw-bold">Hồ sơ đơn giản</h5>
+              <p class="text-muted small mb-0">
+                Không cần chứng minh tài chính rườm rà.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div
+              class="card feature-card text-center h-100 border-0 shadow-sm p-4"
+            >
+              <div class="feature-icon mb-3">
+                <i class="bi bi-clock-history fs-1 text-teal"></i>
+              </div>
+              <h5 class="fw-bold">Giải ngân siêu tốc</h5>
+              <p class="text-muted small mb-0">
+                Nhận ngay tiền vào tài khoản ngân hàng trong 1 phút.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div
+              class="card feature-card text-center h-100 border-0 shadow-sm p-4"
+            >
+              <div class="feature-icon mb-3">
+                <i class="bi bi-calendar-check fs-1 text-teal"></i>
+              </div>
+              <h5 class="fw-bold">Thanh toán nhẹ nhàng</h5>
+              <p class="text-muted small mb-0">
+                Kỳ hạn vay linh hoạt, trả góp lên đến 36 tháng.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm p-4 mb-4 bg-white">
+              <h4 class="fw-bold text-teal mb-3">
+                <i class="bi bi-star-fill me-2 text-warning"></i>Đặc điểm nổi
+                bật
+              </h4>
+              <ul class="list-unstyled custom-list space-y-2">
+                <li>
+                  <i class="bi bi-check-circle-fill text-success me-2"></i> Hạn
+                  mức cho vay lên đến 50.000.000 VNĐ.
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success me-2"></i> Đăng
+                  ký 100% online chỉ với 5 bước đơn giản.
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  Không chứng minh tài chính, không gọi thẩm định người thân.
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  Duyệt tự động trong 2 phút, nhận tiền ngay lập tức.
+                </li>
+              </ul>
+            </div>
+
+            <div class="card border-0 shadow-sm p-4 bg-white">
+              <h4 class="fw-bold text-teal mb-3">
+                <i class="bi bi-people-fill me-2"></i>Đối tượng khách hàng
+              </h4>
+              <ul class="list-unstyled custom-list space-y-2">
+                <li>
+                  <i class="bi bi-person-check text-teal me-2"></i> Khách hàng
+                  cá nhân mang quốc tịch Việt Nam.
+                </li>
+                <li>
+                  <i class="bi bi-person-check text-teal me-2"></i> Độ tuổi lao
+                  động từ 18 – 60 tuổi.
+                </li>
+                <li>
+                  <i class="bi bi-person-check text-teal me-2"></i> Có tài khoản
+                  ngân hàng chính chủ để nhận tiền.
+                </li>
+                <li>
+                  <i class="bi bi-person-check text-teal me-2"></i> Thu nhập tối
+                  thiểu ổn định từ 3 triệu đồng/tháng.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm p-4 mb-4 bg-white">
+              <h4 class="fw-bold text-teal mb-3">
+                <i class="bi bi-percent me-2"></i>Lãi suất & Các loại phí
+              </h4>
+              <p class="mb-2">
+                <strong>Lãi suất:</strong> Chỉ từ 2.3%/tháng theo dư nợ giảm dần
+                (Lãi suất phẳng tương đương từ 28.7%/năm đến tối đa 36%/năm).
+              </p>
+              <p class="mb-2">
+                <strong>Phí tất toán trước hạn:</strong> 5% tính trên dư nợ gốc
+                thực tế còn lại.
+              </p>
+              <p class="mb-0">
+                <strong>Bảo hiểm khoản vay:</strong> Hoàn toàn tự nguyện (Không
+                bắt buộc).
+              </p>
+            </div>
+
+            <div
+              class="card border-0 shadow-sm p-4 mb-4 bg-white border-start border-teal border-4"
+            >
+              <h5 class="fw-bold text-dark mb-3">Ví dụ minh họa tính toán:</h5>
+              <p class="small text-muted mb-2">
+                Kết quả ước tính dưới đây dựa trên mức lãi suất phẳng 28.7%/năm
+                và có thể thay đổi nhẹ tùy vào thời điểm thực tế:
+              </p>
+              <ul class="small list-unstyled mb-0">
+                <li class="mb-1">
+                  • Khách hàng đăng ký vay: <strong>30.000.000 VNĐ</strong> kỳ
+                  hạn <strong>24 tháng</strong>.
+                </li>
+                <li class="mb-1">• Lãi suất áp dụng: 28.7%/năm.</li>
+                <li class="mb-0">
+                  • Tổng số tiền gốc và lãi cần thanh toán:
+                  <strong>47.222.520 VNĐ</strong> (chia đều khoảng
+                  <strong>1,967,605 VNĐ/tháng</strong>, đã bao gồm các loại phí
+                  dịch vụ liên quan).
+                </li>
+              </ul>
+            </div>
+
+            <div class="card border-0 shadow-sm p-4 bg-white">
+              <h5 class="fw-bold text-danger mb-3">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>Điều kiện
+                tất toán trước hạn
+              </h5>
+              <p class="small text-muted mb-0">
+                Khách hàng chỉ được phép hoàn tất thanh toán trước hạn khoản vay
+                sau khi đã trải qua tối thiểu ba (03) kỳ thanh toán định kỳ đầu
+                tiên và thanh toán phí phạt tất toán trước hạn theo quy định hợp
+                đồng.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      id="footer-section"
+      class="bg-dark-custom text-white py-5 border-top border-teal border-3"
+    >
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <h5 class="fw-bold text-teal mb-3">HỖ TRỢ & CHĂM SÓC KHÁCH HÀNG</h5>
+            <div class="d-flex align-items-center mb-3">
+              <div
+                class="phone-icon bg-teal text-white rounded-circle p-3 me-3"
+              >
+                <i class="bi bi-telephone-fill fs-4"></i>
+              </div>
+              <div>
+                <span class="d-block text-muted small">Hotline Tư Vấn</span>
+                <a
+                  href="tel:+84876134747"
+                  class="text-orange fs-4 fw-bold text-decoration-none"
+                  >+84 876 134 747</a
+                >
+              </div>
+            </div>
+            <p class="text-muted small mb-0">
+              *Cước phí cuộc gọi: 1,000đ/phút. Quý khách vui lòng kiểm tra kỹ số
+              điện thoại chính thức trước khi thực hiện cuộc gọi.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-1"><strong>Thời gian làm việc:</strong></p>
+            <p class="text-muted small mb-3">
+              Thứ 2 - Thứ 6: 07:30 - 18:00 <br />
+              Thứ 7 & Chủ Nhật: 08:00 - 17:00
+            </p>
+            <p class="text-muted small mb-0">
+              © 2026 Bản quyền thuộc về
+              <span class="text-teal fw-bold">VAYNHANHPLUS</span>. Bảo lưu mọi
+              quyền.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="form.js"></script>
+
+    <script>
+      const range = document.getElementById("loanRange");
+      const text = document.getElementById("loanAmountText");
+      range.addEventListener("input", (e) => {
+        const formatted = new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        }).format(e.target.value);
+        text.textContent = formatted;
+      });
+    </script>
+    <div
+      class="modal fade"
+      id="statusModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 380px">
+        <div
+          class="modal-content border-0 shadow-lg"
+          style="border-radius: 16px"
+        >
+          <div class="modal-body text-center p-5">
+            <div id="modal-loading" class="status-icon-box">
+              <div class="spinner-custom"></div>
+            </div>
+
+            <div id="modal-error" class="status-icon-box d-none">
+              <div
+                class="circle-icon bg-danger-light text-danger animate-scale"
+              >
+                <i class="bi bi-x-lg"></i>
+              </div>
+              <h4 class="fw-bold mt-4 text-dark" id="error-title">Thông Báo</h4>
+              <p class="text-muted small px-2" id="error-msg">
+                Vui lòng đăng nhập trước khi thực hiện chức năng này!
+              </p>
+              <button
+                type="button"
+                class="btn btn-secondary w-100 py-2.5 mt-3 rounded-3 fw-semibold"
+                data-bs-dismiss="modal"
+              >
+                Tôi Đã Hiểu
+              </button>
+            </div>
+
+            <div id="modal-success" class="status-icon-box d-none">
+              <div
+                class="circle-icon bg-success-light text-success animate-scale"
+              >
+                <i class="bi bi-check-lg"></i>
+              </div>
+              <h4 class="fw-bold mt-4 text-dark" id="success-title">
+                Thành Công
+              </h4>
+              <p class="text-muted small px-2" id="success-msg">
+                Vui lòng kiểm tra hóa đơn của bạn.
+              </p>
+              <button
+                type="button"
+                class="btn btn-teal-modal w-100 py-2.5 mt-3 rounded-3 fw-semibold"
+                data-bs-dismiss="modal"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
