@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoàn Tất Đăng Ký - Bước 3 | VAYNHANH+</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>"
+    />
+
+    <style>
+      :root {
+        --primary-teal: #009688;
+        --primary-teal-hover: #00796b;
+        --dark-bg: #0b1116;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        min-height: 100vh;
+        padding-bottom: 50px;
+      }
+
+      /* STEPPER CSS */
+      .stepper-wrapper {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .stepper-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #e0e0e0;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .stepper-progress {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%; /* Bước 3 đã hoàn tất -> Thanh progress fill 100% */
+        height: 3px;
+        background-color: var(--primary-teal);
+        transform: translateY(-50%);
+        z-index: 1;
+        transition: width 0.3s ease;
+      }
+
+      .step-item {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .step-counter {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 3px solid #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #777;
+      }
+
+      .step-item.completed .step-counter {
+        background-color: var(--primary-teal);
+        border-color: var(--primary-teal);
+        color: #fff;
+      }
+
+      /* FORM CARD DESIGN */
+      .form-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eef2f5;
+      }
+
+      .btn-teal {
+        background-color: var(--primary-teal);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-teal:hover {
+        background-color: var(--primary-teal-hover);
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 150, 136, 0.25);
+      }
+
+      /* HIỆU ỨNG ICON DẤU TÍCH THÀNH CÔNG */
+      .success-icon-box {
+        width: 100px;
+        height: 100px;
+        background-color: #e6f4ea;
+        color: #1e8e3e;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        margin: 0 auto 1.5rem auto;
+        animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      @keyframes scaleUp {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .status-badge {
+        background-color: #fff8e1;
+        color: #b78103;
+        border: 1px solid #ffe082;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-4 shadow-sm"
+      style="background: var(--dark-bg) !important"
+    >
+      <div class="container justify-content-center">
+        <a class="navbar-brand fw-bold fs-4 text-white" href="index.html">
+          VAYNHANH<span style="color: var(--primary-teal)">PLUS</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- STEPPER BAR (THANH TIẾN TRÌNH FULL 100%) -->
+      <div class="stepper-wrapper my-4">
+        <div class="stepper-progress"></div>
+
+        <!-- Bước 1: Hoàn thành -->
+        <div class="step-item completed">
+          <div class="step-counter"><i class="bi bi-check-lg"></i></div>
+        </div>
+
+        <!-- Bước 2: Hoàn thành -->
+        <div class="step-item completed">
+          <div class="step-counter"><i class="bi bi-check-lg"></i></div>
+        </div>
+
+        <!-- Bước 3: Hoàn thành -->
+        <div class="step-item completed">
+          <div class="step-counter"><i class="bi bi-check-lg"></i></div>
+        </div>
+      </div>
+
+      <!-- KHUNG THÔNG BÁO BƯỚC 3 -->
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+          <div class="form-card p-4 p-md-5 text-center">
+            <!-- Icon Dấu Tích Xanh Động -->
+            <div class="success-icon-box">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+
+            <h3 class="fw-bold text-dark mb-2">Đăng Ký Thành Công!</h3>
+
+            <div class="mb-4">
+              <span class="status-badge">
+                <i class="bi bi-clock-history me-1"></i> Trạng thái: Đang chờ
+                thẩm định
+              </span>
+            </div>
+
+            <p class="text-secondary fs-6 lh-base px-md-3 mb-4">
+              Hồ sơ của bạn đã được gửi thành công lên hệ thống. Vui lòng giữ
+              máy, nhân viên thẩm định sẽ liên hệ với bạn qua số điện thoại đã
+              đăng ký để xác minh và tiến hành giải ngân trong thời gian sớm
+              nhất.
+            </p>
+
+            <!-- Khung lưu ý nhỏ -->
+            <div
+              class="p-3 bg-light rounded-3 text-start mb-4 border-start border-4 border-teal"
+              style="border-left-color: var(--primary-teal) !important"
+            >
+              <p class="small text-muted mb-1">
+                <i class="bi bi-info-circle-fill text-teal me-1"></i>
+                <strong>Lưu ý quan trọng:</strong>
+              </p>
+              <ul class="small text-muted mb-0 ps-3">
+                <li>
+                  Thời gian làm việc hỗ trợ duyệt hồ sơ: 8:00 - 21:00 hàng ngày.
+                </li>
+                <li>
+                  Vui lòng chuẩn bị sẵn CCCD gốc để đối chiếu khi có cuộc gọi hỗ
+                  trợ.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Nút quay lại trang chủ -->
+            <div class="pt-2">
+              <a
+                href="index.html"
+                class="btn btn-teal w-100 py-2.5 rounded-3 fs-6"
+              >
+                <i class="bi bi-house-door-fill me-2"></i>Quay về Trang Chủ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

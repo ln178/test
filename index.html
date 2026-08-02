@@ -66,14 +66,6 @@
                 >Kiểm Tra Hóa Đơn</a
               >
             </li>
-            <li class="nav-item d-flex gap-2 ms-lg-2 mt-2 mt-lg-0">
-              <a href="signin.html" class="btn btn-login rounded-pill px-3">
-                <i class="bi bi-box-arrow-in-right me-1"></i>Đăng Nhập
-              </a>
-              <a href="signup.html" class="btn btn-signup rounded-pill px-3">
-                Đăng Ký
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -153,29 +145,29 @@
                       >Số tiền muốn vay:</span
                     >
                     <span class="fs-4 fw-bold text-teal" id="loanAmountText"
-                      >850,000 VND</span
+                      >500,000 VND</span
                     >
                   </div>
                   <input
                     type="range"
                     class="form-range custom-range"
                     id="loanRange"
-                    min="850000"
+                    min="500000"
                     max="20000000"
-                    step="500000"
-                    value="850000"
+                    step="50000"
+                    value="500000"
                   />
                   <div
                     class="d-flex justify-content-between text-muted small mt-1"
                   >
-                    <span>850.000đ</span>
+                    <span>500.000đ</span>
                     <span>20.000.000đ</span>
                   </div>
                 </div>
 
                 <hr class="my-4 opacity-50" />
 
-                <form id="loanForm">
+                <form id="loanForm" class="needs-validation" novalidate>
                   <div class="mb-3">
                     <label class="form-label small fw-bold text-muted"
                       >Họ và tên</label

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xác Minh Thông Tin - Bước 2 | VAYNHANH+</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>"
+    />
+
+    <style>
+      :root {
+        --primary-teal: #009688;
+        --primary-teal-hover: #00796b;
+        --dark-bg: #0b1116;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        min-height: 100vh;
+        padding-bottom: 50px;
+      }
+
+      /* STEPPER CSS */
+      .stepper-wrapper {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .stepper-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #e0e0e0;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .stepper-progress {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 50%; /* Đang ở bước 2 nên fill 50% thanh progress */
+        height: 3px;
+        background-color: var(--primary-teal);
+        transform: translateY(-50%);
+        z-index: 1;
+        transition: width 0.3s ease;
+      }
+
+      .step-item {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .step-counter {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 3px solid #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #777;
+        background-color: #fff;
+      }
+
+      .step-item.completed .step-counter {
+        background-color: var(--primary-teal);
+        border-color: var(--primary-teal);
+        color: #fff;
+      }
+
+      .step-item.active .step-counter {
+        background-color: #fff;
+        border-color: var(--primary-teal);
+        color: var(--primary-teal);
+        box-shadow: 0 0 0 4px rgba(0, 150, 136, 0.2);
+      }
+
+      /* FORM CARD DESIGN */
+      .form-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eef2f5;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--primary-teal);
+        box-shadow: 0 0 0 0.25rem rgba(0, 150, 136, 0.15);
+      }
+
+      .upload-box {
+        border: 2px dashed #d1d5db;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        background-color: #fafafa;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .upload-box:hover {
+        border-color: var(--primary-teal);
+        background-color: #f0fdfa;
+      }
+
+      .btn-teal {
+        background-color: var(--primary-teal);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-teal:hover {
+        background-color: var(--primary-teal-hover);
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 150, 136, 0.25);
+      }
+
+      .preview-img {
+        max-height: 120px;
+        border-radius: 8px;
+        object-fit: cover;
+        display: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Navbar đơn giản -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-4 shadow-sm"
+      style="background: var(--dark-bg) !important"
+    >
+      <div class="container justify-content-center">
+        <a class="navbar-brand fw-bold fs-4 text-white" href="index.html">
+          VAYNHANH<span style="color: var(--primary-teal)">PLUS</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- STEPPER BAR (THANH TIẾN TRÌNH) -->
+      <div class="stepper-wrapper my-4">
+        <div class="stepper-progress"></div>
+
+        <!-- Bước 1: Đã hoàn thành -->
+        <div class="step-item completed">
+          <div class="step-counter"><i class="bi bi-check-lg"></i></div>
+        </div>
+
+        <!-- Bước 2: Đang thực hiện -->
+        <div class="step-item active">
+          <div class="step-counter">2</div>
+        </div>
+
+        <!-- Bước 3: Chưa tới -->
+        <div class="step-item">
+          <div class="step-counter">3</div>
+        </div>
+      </div>
+
+      <!-- KHUNG ĐIỀN THÔNG TIN BƯỚC 2 -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+          <div class="form-card p-4 p-md-5">
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-dark">Xác Minh Thông Tin Cá Nhân</h4>
+              <p class="text-muted small">
+                Chào bạn! Vui lòng cung cấp đầy đủ và chính xác thông tin bên
+                dưới để hồ sơ vay của bạn được hệ thống duyệt tự động nhanh
+                nhất.
+              </p>
+            </div>
+
+            <form
+              id="step2Form"
+              action="step3.html"
+              method="GET"
+              class="needs-validation"
+              novalidate
+            >
+              <!-- 1. Địa chỉ thường trú -->
+              <div class="mb-3">
+                <label
+                  for="address"
+                  class="form-label fw-semibold text-secondary"
+                >
+                  <i class="bi bi-geo-alt-fill text-teal me-1"></i> Địa chỉ
+                  thường trú (Theo CCCD)
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg fs-6"
+                  id="address"
+                  required
+                  placeholder="Ví dụ: 123 Nguyễn Trãi, Phường 2, Quận 5, TP.HCM"
+                />
+                <div class="invalid-feedback">
+                  Vui lòng nhập địa chỉ thường trú của bạn.
+                </div>
+              </div>
+
+              <!-- 2. Số CMND / CCCD -->
+              <div class="mb-4">
+                <label
+                  for="idCard"
+                  class="form-label fw-semibold text-secondary"
+                >
+                  <i class="bi bi-card-heading text-teal me-1"></i> Số CMND /
+                  CCCD (12 số)
+                </label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg fs-6"
+                  id="idCard"
+                  pattern="[0-9]{9,12}"
+                  required
+                  placeholder="Nhập đủ 12 số CCCD"
+                />
+                <div class="invalid-feedback">
+                  Vui lòng nhập số CMND/CCCD hợp lệ.
+                </div>
+              </div>
+
+              <hr class="my-4 text-muted opacity-25" />
+
+              <h6 class="fw-bold text-dark mb-3">
+                <i class="bi bi-camera-fill me-2 text-teal"></i>Tải Lên Hình Ảnh
+                Xác Thực
+              </h6>
+
+              <div class="row g-3 mb-4">
+                <!-- Ảnh CCCD Mặt Trước -->
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-secondary"
+                    >Ảnh CCCD Mặt Trước</label
+                  >
+                  <div
+                    class="upload-box"
+                    onclick="document.getElementById('imgFront').click()"
+                  >
+                    <i class="bi bi-cloud-arrow-up fs-2 text-teal"></i>
+                    <p class="small text-muted mb-0 id-front-text">
+                      Bấm vào đây để chọn ảnh
+                    </p>
+                    <img
+                      id="previewFront"
+                      class="preview-img w-100"
+                      alt="Mặt trước"
+                    />
+                  </div>
+                  <input
+                    type="file"
+                    id="imgFront"
+                    accept="image/*"
+                    class="d-none"
+                    required
+                    onchange="
+                      previewFile('imgFront', 'previewFront', 'id-front-text')
+                    "
+                  />
+                </div>
+
+                <!-- Ảnh CCCD Mặt Sau -->
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-secondary"
+                    >Ảnh CCCD Mặt Sau</label
+                  >
+                  <div
+                    class="upload-box"
+                    onclick="document.getElementById('imgBack').click()"
+                  >
+                    <i class="bi bi-cloud-arrow-up fs-2 text-teal"></i>
+                    <p class="small text-muted mb-0 id-back-text">
+                      Bấm vào đây để chọn ảnh
+                    </p>
+                    <img
+                      id="previewBack"
+                      class="preview-img w-100"
+                      alt="Mặt sau"
+                    />
+                  </div>
+                  <input
+                    type="file"
+                    id="imgBack"
+                    accept="image/*"
+                    class="d-none"
+                    required
+                    onchange="
+                      previewFile('imgBack', 'previewBack', 'id-back-text')
+                    "
+                  />
+                </div>
+
+                <!-- Ảnh Cầm CCCD -->
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-secondary"
+                    >Ảnh Chân Dung Cầm CCCD</label
+                  >
+                  <div
+                    class="upload-box"
+                    onclick="document.getElementById('imgHold').click()"
+                  >
+                    <i class="bi bi-person-bounding-box fs-2 text-teal"></i>
+                    <p class="small text-muted mb-0 id-hold-text">
+                      Bấm vào đây để chọn ảnh
+                    </p>
+                    <img
+                      id="previewHold"
+                      class="preview-img w-100"
+                      alt="Ảnh cầm CCCD"
+                    />
+                  </div>
+                  <input
+                    type="file"
+                    id="imgHold"
+                    accept="image/*"
+                    class="d-none"
+                    required
+                    onchange="
+                      previewFile('imgHold', 'previewHold', 'id-hold-text')
+                    "
+                  />
+                </div>
+
+                <!-- Ảnh QR Nhận Tiền -->
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold text-secondary"
+                    >Ảnh Mã QR Ngân Hàng Nhận Tiền</label
+                  >
+                  <div
+                    class="upload-box"
+                    onclick="document.getElementById('imgQr').click()"
+                  >
+                    <i class="bi bi-qr-code-scan fs-2 text-teal"></i>
+                    <p class="small text-muted mb-0 id-qr-text">
+                      Bấm vào đây để chọn ảnh QR
+                    </p>
+                    <img
+                      id="previewQr"
+                      class="preview-img w-100"
+                      alt="Mã QR nhận tiền"
+                    />
+                  </div>
+                  <input
+                    type="file"
+                    id="imgQr"
+                    accept="image/*"
+                    class="d-none"
+                    required
+                    onchange="previewFile('imgQr', 'previewQr', 'id-qr-text')"
+                  />
+                </div>
+              </div>
+
+              <!-- NÚT CHUYỂN HƯỚNG BƯỚC -->
+              <div
+                class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top"
+              >
+                <a href="index.html" class="btn btn-outline-secondary px-4">
+                  <i class="bi bi-arrow-left me-1"></i> Quay lại
+                </a>
+                <button type="submit" class="btn btn-teal px-4">
+                  Tiếp tục <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Preview ảnh + Validate form -->
+    <script>
+      // Hàm hiển thị hình ảnh sau khi người dùng bấm chọn tệp
+      function previewFile(inputId, previewId, textClass) {
+        const input = document.getElementById(inputId);
+        const preview = document.getElementById(previewId);
+        const textElement = document.querySelector("." + textClass);
+
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+            if (textElement) textElement.style.display = "none";
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      // Validate bắt buộc chọn đủ thông tin & ảnh mới cho bấm Tiếp Tục
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                alert(
+                  "Vui lòng điền đầy đủ thông tin và tải lên tất cả các ảnh được yêu cầu!",
+                );
+              }
+              form.classList.add("was-validated");
+            },
+            false,
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

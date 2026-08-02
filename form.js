@@ -1,44 +1,61 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const loanInput = document.getElementById("loanAmount");
+  const loanDisplay = document.getElementById("loanDisplay");
+
+  if (loanInput) {
+    loanInput.value = 500000;
+
+    loanInput.addEventListener("input", function () {
+      let value = parseInt(this.value);
+      if (loanDisplay) {
+        loanDisplay.textContent = value.toLocaleString("vi-VN") + " đ";
+      }
+    });
+  }
+
+  const loanForm = document.getElementById("loanForm");
+
+  if (loanForm) {
+    loanForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!loanForm.checkValidity()) {
+        e.stopPropagation();
+        loanForm.classList.add("was-validated");
+        alert("Vui lòng điền đầy đủ và chính xác các thông tin được yêu cầu!");
+        return;
+      }
+
+      loanForm.classList.add("was-validated");
+
+      if (typeof showStatusNotification === "function") {
+        showStatusNotification(
+          "loading",
+          "Đang xử lý",
+          "Vui lòng chờ trong giây lát...",
+        );
+      }
+
+      setTimeout(() => {
+        window.location.href = "step2.html";
+      }, 600);
+    });
+  }
+});
+
 function showStatusNotification(type, title, message) {
-  // Khởi tạo Modal từ Bootstrap
-  const myModal = new bootstrap.Modal(document.getElementById("statusModal"));
+  const statusModalEl = document.getElementById("statusModal");
+  if (!statusModalEl) return;
 
-  // Reset lại trạng thái ban đầu (Hiện xoay xoay, ẩn X và Check đi)
-  document.getElementById("modal-loading").classList.remove("d-none");
-  document.getElementById("modal-error").classList.add("d-none");
-  document.getElementById("modal-success").classList.add("d-none");
+  const myModal = new bootstrap.Modal(statusModalEl);
 
-  // Mở hộp thoại lên
+  const loadingEl = document.getElementById("modal-loading");
+  const errorEl = document.getElementById("modal-error");
+  const successEl = document.getElementById("modal-success");
+
+  if (loadingEl) loadingEl.classList.remove("d-none");
+  if (errorEl) errorEl.classList.add("d-none");
+  if (successEl) successEl.classList.add("d-none");
+
   myModal.show();
-
-  // Giả lập hiệu ứng xoay xoay trong 1.5 giây rồi đổi icon
-  setTimeout(() => {
-    // Ẩn vòng tròn xoay đi
-    document.getElementById("modal-loading").classList.add("d-none");
-
-    if (type === "error") {
-      // Hiển thị giao diện Thất bại (Dấu X)
-      document.getElementById("error-title").textContent = title;
-      document.getElementById("error-msg").textContent = message;
-      document.getElementById("modal-error").classList.remove("d-none");
-    } else if (type === "success") {
-      // Hiển thị giao diện Thành công (Dấu Tích)
-      document.getElementById("success-title").textContent = title;
-      document.getElementById("success-msg").textContent = message;
-      document.getElementById("modal-success").classList.remove("d-none");
-    }
-  }, 600);
-}
-
-const loanForm = document.getElementById("loanForm");
-if (loanForm) {
-  loanForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Chặn load lại trang
-
-    // Gọi hàm báo lỗi (Hiện dấu X đỏ): Vui lòng đăng nhập trước
-    showStatusNotification(
-      "error",
-      "Cảnh Báo",
-      "Vui lòng đăng nhập trước khi thực hiện đăng ký khoản vay!",
-    );
-  });
 }
